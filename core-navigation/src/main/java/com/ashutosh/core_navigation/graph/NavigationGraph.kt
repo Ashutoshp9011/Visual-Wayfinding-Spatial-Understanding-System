@@ -1,19 +1,20 @@
 package com.ashutosh.core_navigation.graph
 
-class NavigationGraph {
-
-    private val nodes = mutableListOf<GraphNode>()
-    private val edges = mutableListOf<GraphEdge>()
-
-    fun addNode(node: GraphNode) {
-        nodes.add(node)
+data class NavigationGraph(
+    val nodes: MutableMap<String, NavNode> = mutableMapOf(),
+    val edges: MutableList<NavEdge> = mutableListOf(),
+    val rooms: MutableMap<String, RoomModel> = mutableMapOf(),
+    val floors: Int = 1
+) {
+    fun addNode(node: NavNode) {
+        nodes[node.id] = node
     }
 
-    fun addEdge(edge: GraphEdge) {
+    fun addEdge(edge: NavEdge) {
         edges.add(edge)
     }
 
-    fun getNodes(): List<GraphNode> = nodes
-
-    fun getEdges(): List<GraphEdge> = edges
+    fun addRoom(room: RoomModel) {
+        rooms[room.id] = room
+    }
 }

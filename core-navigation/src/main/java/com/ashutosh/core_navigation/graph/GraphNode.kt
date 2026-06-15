@@ -17,11 +17,3 @@ data class GraphNode(
         )
     }
 }
-
-enum class NodeType {
-    ENTRANCE,
-    HALL,
-    ROOM,
-    DESTINATION,
-    EXIT
-}
